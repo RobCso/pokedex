@@ -26,23 +26,21 @@ import React from "react";
 import Logo from "./Logo";
 import BestPokemon from "./BestPokemon";
 import CaughtPokemon from "./CaughtPokemon";
-import PokemonMoves from "./PokemonMoves";
-
+import PokemonMovesSelector from "./PokemonMovesSelector";
 
 const abilities = ["Anticipation", "Adaptability", "Run-Away", "Fight", "Fly"];
 const date = new Date().toLocaleDateString();
-const clickLog =() => {
+const clickLog = () => {
   console.log("Button was clicked!");
 };
-
 
 const App = () => {
   return (
     <div>
-      <Logo appName="Pokedex" logWhenClicked={clickLog}/>
+      <Logo appName="Pokedex" logWhenClicked={clickLog} />
       <BestPokemon arrayOfAbilities={abilities} />
-      <CaughtPokemon myDate={date} appNames="Pokedex"/>
-      <PokemonMoves />
+      <CaughtPokemon myDate={date} appNames="Pokedex" />
+      <PokemonMovesSelector />
     </div>
   );
 };
