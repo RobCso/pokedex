@@ -26,6 +26,7 @@ import React from "react";
 import Logo from "./Logo";
 import BestPokemon from "./BestPokemon";
 import CaughtPokemon from "./CaughtPokemon";
+import PokemonMoves from "./PokemonMoves";
 
 
 const abilities = ["Anticipation", "Adaptability", "Run-Away", "Fight", "Fly"];
@@ -41,6 +42,7 @@ const App = () => {
       <Logo appName="Pokedex" logWhenClicked={clickLog}/>
       <BestPokemon arrayOfAbilities={abilities} />
       <CaughtPokemon myDate={date} appNames="Pokedex"/>
+      <PokemonMoves />
     </div>
   );
 };

@@ -6,7 +6,7 @@ const CaughtPokemon = (props) => {
   function catchPokemon() {
     const pokemonArray = ["Pikachu", "Eevee", "Charizard", "Snorlax", "Charmander"];
     const randomPokemon = pokemonArray[(Math.random() * pokemonArray.length) | 0];
-    console.log(randomPokemon);
+    //console.log(randomPokemon);
     setCaught(caught.concat(randomPokemon));
   }
   return (
