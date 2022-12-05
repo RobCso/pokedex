@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+ */
+
+ .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 90%;  
+    margin: 1rem auto;
+    gap: 1rem;
+ }
+
+ .link {
+    text-decoration: none;
+    background-color: cornflowerblue;
+    color: azure;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+ }

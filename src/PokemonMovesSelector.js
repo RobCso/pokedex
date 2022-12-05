@@ -1,24 +1,22 @@
-import React, { useState } from "react";
+
 
 import PokemonMoves from "./PokemonMoves";
 
-function PokemonMovesSelector() {
-  const [id, setId] = useState(null);
-
+function PokemonMovesSelector(props) {
   function handleBulbasaurClick(e) {
     e.preventDefault();
-    setId(1);
+    props.setId(1);
   }
   function handleCharmanderClick(e) {
     e.preventDefault();
-    setId(4);
+    props.setId(4);
   }
 
   return (
     <div>
       <button onClick={handleBulbasaurClick}>Fetch Bulbasaur</button>
       <button onClick={handleCharmanderClick}>Fetch Charmander</button>
-      {id ? <PokemonMoves pokemonId={id} /> : null}
+      {props.id ? <PokemonMoves pokemonId={props.id} /> : null}
     </div>
   );
 }

@@ -4,7 +4,6 @@ function PokemonMoves({ pokemonId }) {
   const [pokemonData, setPokemonData] = useState(null);
 
   useEffect(() => {
-    //const url = `https://pokeapi.co/api/v2/pokemon/${props.pokemonID}/`;
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`)
       .then((res) => res.json())
       .then((data) => {

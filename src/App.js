@@ -1,32 +1,12 @@
-// import logo from "./logo.svg";
-// import "./App.css";
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./Logo";
 import BestPokemon from "./BestPokemon";
 import CaughtPokemon from "./CaughtPokemon";
 import PokemonMovesSelector from "./PokemonMovesSelector";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./Header";
+import "./App.css";
+import PokemonInfo from "./PokemonInfo";
 
 const abilities = ["Anticipation", "Adaptability", "Run-Away", "Fight", "Fly"];
 const date = new Date().toLocaleDateString();
@@ -35,13 +15,29 @@ const clickLog = () => {
 };
 
 const App = () => {
+  const [id, setId] = useState(null);
+  const [name, setName] = useState("");
   return (
-    <div>
-      <Logo appName="Pokedex" logWhenClicked={clickLog} />
-      <BestPokemon arrayOfAbilities={abilities} />
-      <CaughtPokemon myDate={date} appNames="Pokedex" />
-      <PokemonMovesSelector />
-    </div>
+    <BrowserRouter>
+      <Header name={name} />
+      <div>
+        <Logo appName="Pokedex" logWhenClicked={clickLog} />
+        {/* <BestPokemon arrayOfAbilities={abilities} /> */}
+        {/* <CaughtPokemon myDate={date} appNames="Pokedex" /> */}
+        <PokemonMovesSelector id={id} setId={setId} />
+        <Routes>
+          <Route
+            path="/caught-pokemon"
+            element={<CaughtPokemon myDate={date} appNames="Pokedex" />}
+          />
+          <Route
+            path="best-pokemon"
+            element={<BestPokemon arrayOfAbilities={abilities} />}
+          />
+          <Route path="/pokemon/:name" element={<PokemonInfo id={id} setName={setName} name={name}/>} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 };
 
