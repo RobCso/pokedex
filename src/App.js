@@ -16,15 +16,20 @@ const clickLog = () => {
 
 const App = () => {
   const [id, setId] = useState(null);
-  const [name, setName] = useState("");
+  const [pokemonData, setPokemonData] = useState(null);
   return (
     <BrowserRouter>
-      <Header name={name} />
+      <Header pokemonData={pokemonData} />
       <div>
         <Logo appName="Pokedex" logWhenClicked={clickLog} />
         {/* <BestPokemon arrayOfAbilities={abilities} /> */}
         {/* <CaughtPokemon myDate={date} appNames="Pokedex" /> */}
-        <PokemonMovesSelector id={id} setId={setId} />
+        <PokemonMovesSelector
+          id={id}
+          setId={setId}
+          pokemonData={pokemonData}
+          setPokemonData={setPokemonData}
+        />
         <Routes>
           <Route
             path="/caught-pokemon"
@@ -34,7 +39,7 @@ const App = () => {
             path="best-pokemon"
             element={<BestPokemon arrayOfAbilities={abilities} />}
           />
-          <Route path="/pokemon/:name" element={<PokemonInfo id={id} setName={setName} name={name}/>} />
+          <Route path="/pokemon/:name" element={<PokemonInfo id={id} />} />
         </Routes>
       </div>
     </BrowserRouter>

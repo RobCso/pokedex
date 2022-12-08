@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-function PokemonMoves({ pokemonId }) {
-  const [pokemonData, setPokemonData] = useState(null);
-
+function PokemonMoves({ pokemonId, pokemonData, setPokemonData }) {
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`)
       .then((res) => res.json())
       .then((data) => {
         setPokemonData(data);
+        console.log(setPokemonData);
       });
-  }, [pokemonId]);
+  }, [pokemonId, setPokemonData]);
 
   console.log(pokemonData);
   return (

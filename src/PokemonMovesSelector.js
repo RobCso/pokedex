@@ -16,7 +16,7 @@ function PokemonMovesSelector(props) {
     <div>
       <button onClick={handleBulbasaurClick}>Fetch Bulbasaur</button>
       <button onClick={handleCharmanderClick}>Fetch Charmander</button>
-      {props.id ? <PokemonMoves pokemonId={props.id} /> : null}
+      {props.id ? <PokemonMoves pokemonId={props.id} pokemonData={props.pokemonData} setPokemonData={props.setPokemonData} /> : null}
     </div>
   );
 }
