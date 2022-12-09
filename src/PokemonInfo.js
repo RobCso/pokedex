@@ -18,7 +18,7 @@ const PokemonInfo = ({ id }) => {
       <h1>Pokemon Info</h1>
       {pokemon && (
         <ul>
-          <li>Name: {pokemon.name}</li>
+          <li>Name: {name}</li>
           <li>Color: {pokemon.color.name}</li>
           <li>Shape: {pokemon.shape.name}</li>
           <li>Happiness: {pokemon.base_happiness}</li>
